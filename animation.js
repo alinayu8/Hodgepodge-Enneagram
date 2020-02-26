@@ -547,7 +547,7 @@ function submitAnswer2() {
             var num = final[i];
             var dict = grouptypes[num - 1];
             var descript = dict[category];
-            if (descript == input) {
+            if (descript.slice(0, -1) == input) {
                 finalArray[i] += 1;
                 savePart3_1(num);
             }
