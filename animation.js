@@ -402,11 +402,14 @@ function fillExploreCompare() {
     } else {
         var category = groupArray[count];
         var descriptions = [];
+        var comp_descriptions = []
 
         for (var i=0; i < final.length; i++) {
-            let group = grouptypes[final[i] - 1][category];
-            if (!descriptions.includes(group)) {
-                descriptions.push(group);
+            let group_suffix = grouptypes[final[i] - 1][category];
+            let group = group_suffix.slice(0, -1);
+            if (!comp_descriptions.includes(group)) {
+                descriptions.push(group_suffix);
+                comp_descriptions.push(group);
             }
         }
 
@@ -417,11 +420,11 @@ function fillExploreCompare() {
             $(".blurb").html(groupexp[category]);
 
             if (descriptions.length == 2) {
-                html += "<tr><th>" + descriptions[0] + "</th><th>" + descriptions[1] + "</th></tr>";
+                html += "<tr><th>" + descriptions[0].slice(0, -1) + "</th><th>" + descriptions[1].slice(0, -1) + "</th></tr>";
                 $("#q2c").hide();
                 $("input[class='2']").hide();
             } else {
-                html += "<tr><th>" + descriptions[0] + "</th><th>" + descriptions[1] + "</th><th>" + descriptions[2] + "</th></tr>";
+                html += "<tr><th>" + descriptions[0].slice(0, -1) + "</th><th>" + descriptions[1].slice(0, -1) + "</th><th>" + descriptions[2].slice(0, -1) + "</th></tr>";
                 $("#q2c").show();
                 $("input[class='2']").show();
             }
@@ -430,8 +433,9 @@ function fillExploreCompare() {
             for (var i=0; i < descriptions.length; i++) {
                 let descriptionName = descriptions[i]; 
                 html += "<td>" + groupdescriptions[descriptionName] + "</td>";
-                $('.' + i).html(descriptionName);
-                $('input[class='+ i + ']').attr('value', descriptionName);
+                let name = descriptionName.slice(0, -1)
+                $('.' + i).html(name);
+                $('input[class='+ i + ']').attr('value', name);
             }
             html += "</tr>";
 
