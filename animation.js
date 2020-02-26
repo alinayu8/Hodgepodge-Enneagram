@@ -123,7 +123,7 @@ function explainTopThree() {
     let first = localStorage.getItem("1");
     let sec = localStorage.getItem("2");
     let third = localStorage.getItem("3");
-    $("#" + first + "," + "#" + sec + "," + "#" + third).css({"font-weight":"bold"}); // temporarily red
+    $("#" + first + "," + "#" + sec + "," + "#" + third).css({"font-weight":"bold"}).addClass('pink'); // temporarily red
 
     let num1 = all_types[first][1];
     let num2 = all_types[sec][1];
@@ -458,6 +458,8 @@ function fillExploreCompare() {
 function newQuestion() {
     $('#almost-done').show();
     $('input:checked').attr('checked',false);
+    // clear everything
+    $('.inconclusiveOrNot, #possibilities, .conclusiveResults').hide();
     $(".blurb").html("Based on the past 15 minutes, which Enneagram Type do <b>you</b> think you are?");
     $("#exptbl, #skip2, #next2").remove();
 
