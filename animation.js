@@ -275,7 +275,7 @@ function submitAnswer() {
             }
 
             savePart2(newPick, notPick, table, input, other);
-            beginSavePart3();
+            // beginSavePart3();
 
             if (secondPlace == newPick && firstPlace == notPick) {
                 localStorage.setItem("firstPlace", newPick);
@@ -306,11 +306,11 @@ function savePart2(one, two, table, a, b) {
     localStorage.setItem("answerKey", html);
 }
 
-function beginSavePart3() {
-    var html = localStorage.getItem("answerKey");
-    html += "<br><h2>PART 3</h2><h3>The following types listed are related to the category you chose: </h3><br>";
-    localStorage.setItem("answerKey", html);
-}
+// function beginSavePart3() {
+//     var html = localStorage.getItem("answerKey");
+//     html += "<br><h2>PART 3</h2><h3>The following types listed are related to the category you chose: </h3><br>";
+//     localStorage.setItem("answerKey", html);
+// }
 
 function nextQuestion() {
     event.preventDefault();
@@ -325,7 +325,7 @@ function nextQuestion() {
 }
 
 var final = [];
-var groupArray = ["Center", "Social", "Conflict", "Relational"];
+// var groupArray = ["Center", "Social", "Conflict", "Relational"];
 var finalArray = [0, 0, 0];
 
 // EXPLORE
@@ -355,11 +355,11 @@ function fillExplore() {
         // STRESS / GROWTH
         identifyArrows(array);
 
-        $(".conclusiveResults").html("Hopefully these possible explanations will help you determine what your type is in this next section. In this section, we will be breaking down different traits that characterize each type. If you are particularly stumped on a comparison, you can come back to it after looking at the other comparisons. <b>There are only a few comparisons, so think about it before clicking 'Next'!</b> (Source: Rob Fitzel) <br>");
+        $(".conclusiveResults").html("Hopefully these possible explanations will help you determine what your type is in this next section. It might be worth doing some more research or reflection on the three types after this test to come to a clearer conclusion. In this next section, it will be a comparison chart of the three types as to what you consider to be your <b>\"best self\" (integration) and your \"worst self\" (disintegration)</b>. To the best of your ability, which combination of the two do you think is most accurate? (Source: Marika Messenger) <br>");
         
         if ($("#possibilities").text().trim() == "However, there is a reason why these 3 are your top types. Here are some possibilities you should consider:") {
             $("#possibilities").html("");
-            $(".conclusiveResults").html("As a result, we were unable to eliminate any options for the next step. In this section, we will be breaking down different traits that characterize each type. If you are particularly stumped on a comparison, you can come back to it after looking at the other comparisons. <b>There are only a few comparisons, so think about it before clicking 'Next'!</b> (Source: Rob Fitzel) <br>");
+            $(".conclusiveResults").html("As a result, we were unable to eliminate any options for the next step. It might be worth doing some more research or reflection on the three types after this test to come to a clearer conclusion. In this next section, it will be a comparison chart of the three types as to what you consider to be your <b>\"best self\" (integration) and your \"worst self\" (disintegration)</b>. To the best of your ability, which combination of the two do you think is most accurate? (Source: Marika Messenger) <br>");
         } 
 
     } else {
@@ -375,7 +375,7 @@ function fillExplore() {
 
         $("#possibilities").hide();
         $(".inconclusiveOrNot").html("Based on the previous comparisons, this is the order in which the types may be ranked in: ");
-        $(".conclusiveResults").html("Based off this ranking, we will focus only on the top two types: <b>Type " + num1 + "</b> and <b>Type " + num2 + "</b>. In this section, we will be breaking down different traits that characterize each type. If you are particularly stumped on a comparison, you can come back to it after looking at the other comparisons. <b>There are only a few comparisons, so think about it before clicking 'Next'!</b> (Source: Rob Fitzel) <br>");
+        $(".conclusiveResults").html("Based off this ranking, we will focus only on the top two types: <b>Type " + num1 + "</b> and <b>Type " + num2 + "</b>. In this section, it will be a comparison chart of the two types as to what you consider to be your <b>\"best self\" (integration) and your \"worst self\" (disintegration)</b>. To the best of your ability, which combination of the two do you think is most accurate? </b> (Source: Marika Messenger) <br>");
     }
 
     $("#firstTypeName1").html("Type " + num1);
@@ -397,62 +397,107 @@ function fillExplore() {
 }
 
 function fillExploreCompare() {
-    if (groupArray.length == 0) {
-        newQuestion();
-    } else {
-        var category = groupArray[count];
+    // if (groupArray.length == 0) {
+    //     newQuestion();
+    // } else {
+        // var category = groupArray[count];
         var descriptions = [];
-        var comp_descriptions = []
+        var comp_descriptions = ["Best Self", "Worst Self"]
 
         for (var i=0; i < final.length; i++) {
-            let group_suffix = grouptypes[final[i] - 1][category];
-            let group = group_suffix.slice(0, -1);
-            if (!comp_descriptions.includes(group)) {
-                descriptions.push(group_suffix);
-                comp_descriptions.push(group);
-            }
+            let grouptype = grouptypes[final[i] - 1];
+            descriptions.push(grouptype);
+            // comp_descriptions.push(group);
         }
 
         var html = "";
 
-        if (descriptions.length > 1) { // make sure there are enough things to compare
+        // if (descriptions.length > 1) { // make sure there are enough things to compare
             // populate table
-            $(".blurb").html(groupexp[category]);
 
-            if (descriptions.length == 2) {
-                html += "<tr><th>" + descriptions[0].slice(0, -1) + "</th><th>" + descriptions[1].slice(0, -1) + "</th></tr>";
-                $("#q2c").hide();
-                $("input[class='2']").hide();
-            } else {
-                html += "<tr><th>" + descriptions[0].slice(0, -1) + "</th><th>" + descriptions[1].slice(0, -1) + "</th><th>" + descriptions[2].slice(0, -1) + "</th></tr>";
-                $("#q2c").show();
-                $("input[class='2']").show();
-            }
+            // if (descriptions.length == 2) {
+            
+            // $("#q2c").hide();
 
-            html += "<tr>";
+            // } else {
+            //     html += "<tr><th>" + descriptions[0].slice(0, -1) + "</th><th>" + descriptions[1].slice(0, -1) + "</th><th>" + descriptions[2].slice(0, -1) + "</th></tr>";
+            //     $("#q2c").show();
+            //     $("input[class='2']").show();
+            // }
+
+            let alphabet = ["A", "B", "C"]
+
+            html += "<tr><th></th>"
+
             for (var i=0; i < descriptions.length; i++) {
-                let descriptionName = descriptions[i]; 
-                html += "<td>" + groupdescriptions[descriptionName] + "</td>";
-                let name = descriptionName.slice(0, -1)
-                $('.' + i).html(name);
-                $('input[class='+ i + ']').attr('value', name);
+                let letter = alphabet[i]
+                html += "<th>Type " + letter + "</th>";
+                $('.' + i).html(letter);
+                $('input[class='+ i + ']').attr('value', letter);
             }
+
+            html += "</tr>"
+
+            if (descriptions.length < 3) {
+                $("input[class='2']").hide();
+                $("#q2c").hide();
+            }
+
+            // for (var i=0; i < comp_descriptions.length - 1; i++) {
+            let descriptionName1 = comp_descriptions[0]; // Best Self
+            let descriptionName2 = comp_descriptions[1]; // Worst Self
+
+            html += "<tr><td><b>" + descriptionName1 + "</b></td>";
+
+            // Terrible reeuse
+            for (var j=0; j < descriptions.length; j++) {
+                let descriptionContent1 = descriptions[j][descriptionName1];
+                html += "<td><ul>"
+                for (var k=0; k < descriptionContent1.length; k++) {
+                    let descript = descriptionContent1[k];
+                    if (k == 0) {
+                        html += "<b>" + descript + "</b>";
+                    } else {
+                        html += "<li>" + descript + "</li>"; 
+                    }  
+                }
+
+                html += "</ul></td>"
+            }
+
+            html += "</tr><tr><td><b>" + descriptionName2 + "</b></td>";
+
+            for (var j=0; j < descriptions.length; j++) {
+                let descriptionContent2 = descriptions[j][descriptionName2];
+                html += "<td><ul>"
+                for (var k=0; k < descriptionContent2.length; k++) {
+                    let descript = descriptionContent2[k];
+                    if (k == 0) {
+                        html += "<b>" + descript + "</b>";
+                    } else {
+                        html += "<li>" + descript + "</li>"; 
+                    }  
+                }
+                html += "</ul></td>"
+            }
+
             html += "</tr>";
+            // }
 
             $('input:checked').attr('checked',false);
             $("#exptbl").html(html); // idk why this is here
 
-        } else { // otherwise...bye bye
-            if (count == groupArray.length - 1) {
-                count = 0;
-            }
-            var filtered = groupArray.filter(function(value, index, arr){
-                    return value != category;
-                });
-            groupArray = filtered;
-            fillExploreCompare();
-        }
-    }
+        // } else { // otherwise...bye bye
+        //     if (count == groupArray.length - 1) {
+        //         count = 0;
+        //     }
+        //     var filtered = groupArray.filter(function(value, index, arr){
+        //             return value != category;
+        //         });
+        //     groupArray = filtered;
+        //     fillExploreCompare();
+        // }
+    // }
 }
 
 function newQuestion() {
@@ -483,104 +528,161 @@ function submitAnswer3() {
 
     if ($("input:checked")[0] != undefined) {
         var input = $("input:checked")[0].value;
-        var maxNum = Math.max.apply(null, finalArray)
-        // check if unique and for second highest
-        var numCount = 0;
-        for (var i=0; i < final.length; i++) {
-            if (maxNum == finalArray[i]) {
-                numCount += 1;
-            }
-        }
+        let num = localStorage.getItem("firstPlace");
+        // var maxNum = Math.max.apply(null, finalArray)
+        // // // check if unique and for second highest
+        // var numCount = 0;
+        // for (var i=0; i < final.length; i++) {
+        //     if (maxNum == finalArray[i]) {
+        //         numCount += 1;
+        //     }
+        // }
 
-        // final num IF conclusive
-        var index = finalArray.indexOf(maxNum);
-        var num = final[index];
+        // // final num IF conclusive
+        // var index = finalArray.indexOf(maxNum);
+        // var num = final[index];
         
-        if (numCount > 1 && firstPlace == "N/A") { // inconclusive, spit out what they think they are
-            console.log("heh");
-            localStorage.setItem("final", "Type" + input);
+        // if (numCount > 1 && firstPlace == "N/A") { // inconclusive, spit out what they think they are
+        //     console.log("heh");
+        //     localStorage.setItem("final", "Type" + input);
+        //     localStorage.setItem("agree", "true");
+        // } else { // conclusive, spit out what this test revealed (hopefully.........)   
+        console.log($("input:checked")[0]);
+        if (input != num) {
+            localStorage.setItem("agree", "false");
+        } else {
             localStorage.setItem("agree", "true");
-        } else { // conclusive, spit out what this test revealed (hopefully.........)   
-            if (input != num) {
-                localStorage.setItem("agree", "false");
-            } else {
-                localStorage.setItem("agree", "true");
-            }
-
-            if (firstPlace != "N/A" && maxNum <= 2) { // if 3rd part was much more wishy washy compared to 1st part
-                if (input != firstPlace) {
-                    localStorage.setItem("agree", "false");
-                } else {
-                    localStorage.setItem("agree", "true");
-                }
-                console.log("nvm");
-                localStorage.setItem("final", "Type" + firstPlace);
-
-                var html = localStorage.getItem("answerKey");
-                if (firstPlace != num) {
-                    html += "<br>*Although Type " + firstPlace + " was outranked by Type " + num + " in Part 3, your Part 2 results were much more conclusive than Part 3 results.";
-                    localStorage.setItem("answerKey", html);
-                }
-            } else {
-                console.log("okie");
-                localStorage.setItem("final", "Type" + num); // otherwise if no conclusive first place OR the count that selected this num was high enough
-            } 
         }
+
+        // if (firstPlace != "N/A" && maxNum <= 2) { // if 3rd part was much more wishy washy compared to 1st part
+        //     if (input != firstPlace) {
+        //         localStorage.setItem("agree", "false");
+        //     } else {
+        //         localStorage.setItem("agree", "true");
+        //     }
+        //     localStorage.setItem("final", "Type" + firstPlace);
+
+        //     var html = localStorage.getItem("answerKey");
+        //     if (firstPlace != num) {
+        //         localStorage.setItem("answerKey", html);
+        //     }
+        // } else {
+     // otherwise if no conclusive first place OR the count that selected this num was high enough
+        // } 
 
         window.location.href = "results.html";
-
     } else {
         alert("Please select an answer.");
     }
 }
 
+
+
+// var length = compArray.length;
+//         var input = $("input:checked")[0].value;
+//         var currentComp = compArray[count];
+
+//         let Type1 = compArray[count].substr(0, 5);
+//         let Type2 = compArray[count].substr(5);
+
+//         let num1 = all_types[Type1][1];
+//         let num2 = all_types[Type2][1];
+
+//         // revised
+//         let firstType = Math.min(num1, num2);
+//         let secondType = Math.max(num1, num2);
+
+//         var table = $("#tbl").html();
+
+//         if (length == 3) {
+
+//             if (input == "A") {
+//                 localStorage.setItem("firstPlace", firstType);
+//                 localStorage.setItem("secondPlace", secondType);
+//                 savePart2(firstType, secondType, table, "A", "B");
+//             } else {
+//                 localStorage.setItem("firstPlace", secondType);
+//                 localStorage.setItem("secondPlace", firstType);
+//                 savePart2(secondType, firstType, table, "B", "A");
+//             }
+
+//             compArray.splice(count, 1);
+
+
+
 function submitAnswer2() {
     event.preventDefault();
     if ($("input:checked")[0] != undefined) {
-        var length = groupArray.length;
-        var category = groupArray[count];
         var input = $("input:checked")[0].value;
-        savePart3_0(input);
+        let alphabet = ["A", "B", "C"];
+        let index = alphabet.indexOf(input);
+        let final_num = final[index];
 
-        // find which numbers are good
-        for (var i=0; i < final.length; i++) {
-            var num = final[i];
-            var dict = grouptypes[num - 1];
-            var descript = dict[category];
-            if (descript.slice(0, -1) == input) {
-                finalArray[i] += 1;
-                savePart3_1(num);
-            }
-        }
+        // Choose the winner!
+        localStorage.setItem("final", "Type" + final_num);
+        localStorage.setItem("firstPlace", final_num);
+
+        // var length = groupArray.length;
+        // var category = groupArray[count];
+        // var input = $("input:checked")[0].value;
+        // savePart3_0(input);
+
+        // // find which numbers are good
+        // for (var i=0; i < final.length; i++) {
+        //     var num = final[i];
+        //     var dict = grouptypes[num - 1];
+        //     var descript = dict[category];
+        //     if (descript.slice(0, -1) == input) {
+        //         finalArray[i] += 1;
+        //         savePart3_1(num);
+        //     }
+        // }
 
         var tbl = $("#exptbl").html();
-        savePart3_2(tbl);
+        // savePart3_2(tbl);
 
-        groupArray.splice(count, 1);
-        nextQuestion2();
+        // groupArray.splice(count, 1);
+
+        savePart3(final_num, input, tbl);
+
+        newQuestion();
     } else {
         alert("Please either skip or select an answer");
     }
 }
 
 // RANDOMLY PLACED SAVE FUNCTION
-function savePart3_0(input) {
+function savePart3(one, two, table) {
     var html = localStorage.getItem("answerKey");
-    html += input + ": ";
+    html += "<br><h2>PART 3</h2><b>You picked Type " + one + " (" + two + ") out of all the types.</b><br>";
+    html += "<table>" + table + "</table><br>";
     localStorage.setItem("answerKey", html);
 }
 
-function savePart3_1(num) {
-    var html = localStorage.getItem("answerKey");
-    html += "<b>Type " + num + "</b>, ";
-    localStorage.setItem("answerKey", html);
-}
+// function beginSavePart3() {
+//     var html = localStorage.getItem("answerKey");
+//     html += "<br><h2>PART 3</h2><h3>The following types listed are related to the category you chose: </h3><br>";
+//     localStorage.setItem("answerKey", html);
+// }
 
-function savePart3_2(table) {
-    var html = localStorage.getItem("answerKey");
-    html += "<br><table>" + table + "</table><br>";
-    localStorage.setItem("answerKey", html);
-}
+// 
+// function savePart3_0(input) {
+//     var html = localStorage.getItem("answerKey");
+//     html += input + ": ";
+//     localStorage.setItem("answerKey", html);
+// }
+
+// function savePart3_1(num) {
+//     var html = localStorage.getItem("answerKey");
+//     html += "<b>Type " + num + "</b>, ";
+//     localStorage.setItem("answerKey", html);
+// }
+
+// function savePart3_2(table) {
+//     var html = localStorage.getItem("answerKey");
+//     html += "<br><table>" + table + "</table><br>";
+//     localStorage.setItem("answerKey", html);
+// }
 
 function nextQuestion2() {
     event.preventDefault();
