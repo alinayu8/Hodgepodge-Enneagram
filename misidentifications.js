@@ -156,7 +156,7 @@ var grouptype7 = {"Best Self": ["I feel like I'm my best self when instead of fe
                 "Worst Self": ["I feel like I'm my worst self when I am not only feeling scattered, but I also...", "Become cynical and hypercritical; nitpick, snarl, and try to change people", "Become judgemental of myself and others; can't laugh at myself", "Think in terms of black and white and \"know\" I have the truth", "Blame others for preventing me from enjoying life", "Become obsessive about an idea or project", "Feel a pervasive, low-level irritability"]
                 };
 
-var grouptype8 = {"Best Self": ["I feel like I'm my best self when instead of feeling lustful and controlling, I...", "Open up to others and reveal my vulnerability", "Become more concerned for the welfare of others", "Become more loving and lovable; express my gentl and tender sides"],
+var grouptype8 = {"Best Self": ["I feel like I'm my best self when instead of feeling lustful and controlling, I...", "Open up to others and reveal my vulnerability", "Become more concerned for the welfare of others", "Become more loving and lovable; express my gentle and tender sides"],
                 "Worst Self": ["I feel like I'm my worst self when instead of feeling self-confident, I...", "Withdraw and take less action in the world", "Become less in touch with my feelings", "Fear that others will turn on me", "Feel defeated and depressed", "May feel guilty and turn my aggression against myself"]
                 };
 

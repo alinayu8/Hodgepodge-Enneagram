@@ -528,7 +528,7 @@ function submitAnswer3() {
 
     if ($("input:checked")[0] != undefined) {
         var input = $("input:checked")[0].value;
-        let num = localStorage.getItem("firstPlace");
+        let num = localStorage.getItem("final");
         // var maxNum = Math.max.apply(null, finalArray)
         // // // check if unique and for second highest
         // var numCount = 0;
@@ -547,7 +547,6 @@ function submitAnswer3() {
         //     localStorage.setItem("final", "Type" + input);
         //     localStorage.setItem("agree", "true");
         // } else { // conclusive, spit out what this test revealed (hopefully.........)   
-        console.log($("input:checked")[0]);
         if (input != num) {
             localStorage.setItem("agree", "false");
         } else {
