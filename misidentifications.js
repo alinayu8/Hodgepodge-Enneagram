@@ -5,7 +5,7 @@ var mistype1 = {"2": ["Appeals to principles over personal feelings.", "Defend a
                 "6": ["Opinionated and feel like they know themselves.", "Compliant to demands of strict ideals.", "'Inner Critic' in the head.", "Guilty when doing something contrary to personal ideals."],
                 "7": ["This type, when growing, looks like a healthy Type A—spontaneous and joyful.", "Hold high standards and expect to be disappointed.", "Know their mission.", "True perfectionism drives them to be angry and critique themselves.", "Rigid in plans, often focused. Quite self-conscious socially. Driven by anger."],
                 "8": ["This type tries to convince others to do the right thing from a moral standpoint (even if they have trouble themselves).", "View justice as an extremely important value to restore humans to a certain standard.", "This type is more compliant to their ideals."],
-                "9": ["When facing conflict, the principle is a priority and will drive home their point, even if it causes arguments.", "More driven, having difficulty taking a break.", "When handling stress, at first will try harder, but then may end up being moody."],
+                "9": ["When facing conflict, the principle is a priority for this type and will drive home their point, even if it causes arguments.", "More driven, having difficulty taking a break.", "When handling stress, at first will try harder, but then may end up being moody."],
                 };
 
 var mistype2 = {"1": ["Highly personal.", "Seek close connection.", "Unrestrained in positive feelings, but more difficult to express negative feelings."],

@@ -355,11 +355,11 @@ function fillExplore() {
         // STRESS / GROWTH
         identifyArrows(array);
 
-        $(".conclusiveResults").html("Hopefully these possible explanations will help you determine what your type is in this next section. It might be worth doing some more research or reflection on the three types after this test to come to a clearer conclusion. In this next section, it will be a comparison chart of the three types as to what you consider to be your <b>\"best self\" (integration) and your \"worst self\" (disintegration)</b>. To the best of your ability, which combination of the two do you think is most accurate? (Source: Marika Messenger) <br>");
+        $(".conclusiveResults").html("Hopefully these possible explanations will help you determine what your type is in this next section. <i>It might be worth doing some more research or inner reflection on the three types after this test to come to a clearer conclusion.");
         
         if ($("#possibilities").text().trim() == "However, there is a reason why these 3 are your top types. Here are some possibilities you should consider:") {
             $("#possibilities").html("");
-            $(".conclusiveResults").html("As a result, we were unable to eliminate any options for the next step. It might be worth doing some more research or reflection on the three types after this test to come to a clearer conclusion. In this next section, it will be a comparison chart of the three types as to what you consider to be your <b>\"best self\" (integration) and your \"worst self\" (disintegration)</b>. To the best of your ability, which combination of the two do you think is most accurate? (Source: Marika Messenger) <br>");
+            $(".conclusiveResults").html("As a result, we were unable to eliminate any options for the next step. It might be worth doing some more research or reflection on the three types after this test to come to a clearer conclusion.");
         } 
 
     } else {
@@ -375,7 +375,7 @@ function fillExplore() {
 
         $("#possibilities").hide();
         $(".inconclusiveOrNot").html("Based on the previous comparisons, this is the order in which the types may be ranked in: ");
-        $(".conclusiveResults").html("Based off this ranking, we will focus only on the top two types: <b>Type " + num1 + "</b> and <b>Type " + num2 + "</b>. In this section, it will be a comparison chart of the two types as to what you consider to be your <b>\"best self\" (integration) and your \"worst self\" (disintegration)</b>. To the best of your ability, which combination of the two do you think is most accurate? </b> (Source: Marika Messenger) <br>");
+        $(".conclusiveResults").html("Based off this ranking, we will focus only on the top two types: <b>Type " + num1 + "</b> and <b>Type " + num2 + "</b>.");
     }
 
     $("#firstTypeName1").html("Type " + num1);
@@ -620,7 +620,7 @@ function submitAnswer2() {
 
         // Choose the winner!
         localStorage.setItem("final", "Type" + final_num);
-        localStorage.setItem("firstPlace", final_num);
+        // localStorage.setItem("firstPlace", final_num);
 
         // var length = groupArray.length;
         // var category = groupArray[count];
