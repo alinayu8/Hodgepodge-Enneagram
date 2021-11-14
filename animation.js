@@ -527,8 +527,10 @@ function submitAnswer3() {
     var firstPlace = localStorage.getItem("firstPlace");
 
     if ($("input:checked")[0] != undefined) {
-        var input = $("input:checked")[0].value;
+        var input = "Type" + $("input:checked")[0].value;
         let num = localStorage.getItem("final");
+        console.log(input);
+        console.log(num);
         // var maxNum = Math.max.apply(null, finalArray)
         // // // check if unique and for second highest
         // var numCount = 0;
@@ -618,6 +620,7 @@ function submitAnswer2() {
         let final_num = final[index];
 
         // Choose the winner!
+        console.log(final_num);
         localStorage.setItem("final", "Type" + final_num);
         // localStorage.setItem("firstPlace", final_num);
 
